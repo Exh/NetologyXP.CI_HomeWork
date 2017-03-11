@@ -23,7 +23,9 @@ class BookShop
             total += 8 * this._cart[key];
         }
         var size = Object.keys(this._cart).length;
-        if (size > 1)
+        if (size > 2)
+            discount = 10;
+        else if (size > 1)
             discount = 5;
         return total - (total / 100 * discount)
     }
