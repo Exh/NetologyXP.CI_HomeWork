@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "XP CI HOMEWORK",
   "scripts": {
-    "test": "node_modules/mocha/bin/mocha --ui tdd -R spec tests/*.js"
+    "test": "node_modules/mocha/bin/mocha --ui tdd -R spec homework/HarryPotter/tests/*.js"
   },
   "repository": {
     "type": "git",

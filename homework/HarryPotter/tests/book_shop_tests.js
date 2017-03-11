@@ -1,7 +1,7 @@
 "use strick"
 
 var assert    = require('chai').assert;
-var BookShop = require('./book_shop');
+var BookShop = require('./../book_shop');
 
 suite('buy Harry Potter books', function () {
 
