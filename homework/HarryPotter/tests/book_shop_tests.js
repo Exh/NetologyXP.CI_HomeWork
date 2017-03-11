@@ -17,6 +17,7 @@ suite('buy Harry Potter books', function () {
     test('I put two same "Harry Potter and the Philosopher\'s Stone" in cart. Total cost of my cart is 16 EUR', function(){
         bookshop = new BookShop();
         bookshop.put("Harry Potter and the Philosopher's Stone");
+        bookshop.put("Harry Potter and the Philosopher's Stone");
 
         res = bookshop.totalCost();
 
