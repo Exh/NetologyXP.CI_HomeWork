@@ -24,4 +24,13 @@ suite('buy Harry Potter books', function () {
         assert.equal(res, 16)
     });
 
+    test('I put "Harry Potter and the Philosopher\'s Stone" & "Harry Potter and the Chamber of Secrets" in cart. Total cost of my cart is 15.2 EUR', function(){
+        bookshop = new BookShop();
+        bookshop.put("Harry Potter and the Philosopher's Stone");
+        bookshop.put("Harry Potter and the Chamber of Secrets");
+
+        res = bookshop.totalCost();
+
+        assert.equal(res, 16 - (16 / 100.0 * 5))
+    });
 });
