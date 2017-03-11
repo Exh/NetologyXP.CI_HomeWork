@@ -18,18 +18,36 @@ class BookShop
     totalCost()
     {
         var total = 0;
-        var discount = 0;
+
+        var cart = [];
         for (var key in this._cart) {
-            total += 8 * this._cart[key];
+            cart[key] = this._cart[key];
         }
-        var size = Object.keys(this._cart).length;
-        if (size > 3)
-            discount = 20;
-        else if (size > 2)
-            discount = 10;
-        else if (size > 1)
-            discount = 5;
-        return total - (total / 100 * discount)
+
+        var i = 0;
+        while (Object.keys(cart).length > 0)
+        {
+            let discount = 0;
+            let size = Object.keys(cart).length;
+            if (size > 3)
+                discount = 20;
+            else if (size > 2)
+                discount = 10;
+            else if (size > 1)
+                discount = 5;
+
+            let cost = size * 8;
+
+            total +=  cost - (cost / 100 * discount);
+
+            for (var key in cart) {
+                if (cart[key] == 1)
+                    delete cart[key];
+                else
+                    cart[key] = cart[key] - 1
+            }
+        }
+        return total
     }
 }
 
