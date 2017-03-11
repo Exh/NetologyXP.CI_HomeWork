@@ -17,9 +17,15 @@ class BookShop
 
     totalCost()
     {
+        var total = 0;
+        var discount = 0;
         for (var key in this._cart) {
-            return 8 * this._cart[key];
+            total += 8 * this._cart[key];
         }
+        var size = Object.keys(this._cart).length;
+        if (size > 1)
+            discount = 5;
+        return total - (total / 100 * discount)
     }
 }
 
