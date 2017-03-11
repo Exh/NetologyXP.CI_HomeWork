@@ -4,9 +4,14 @@ var assert    = require('chai').assert;
 var BookShop = require('./../book_shop');
 
 suite('buy Harry Potter books', function () {
+    let bookshop = [];
+
+    setup(function () {
+        bookshop = new BookShop();
+
+    });
 
     test('I put "Harry Potter and the Philosopher\'s Stone" in cart. Total cost of my cart is 8 EUR', function(){
-        bookshop = new BookShop();
         bookshop.put("Harry Potter and the Philosopher's Stone");
 
         res = bookshop.totalCost();
@@ -15,7 +20,6 @@ suite('buy Harry Potter books', function () {
     });
 
     test('I put two same "Harry Potter and the Philosopher\'s Stone" in cart. Total cost of my cart is 16 EUR', function(){
-        bookshop = new BookShop();
         bookshop.put("Harry Potter and the Philosopher's Stone");
         bookshop.put("Harry Potter and the Philosopher's Stone");
 
@@ -25,7 +29,6 @@ suite('buy Harry Potter books', function () {
     });
 
     test('I put "Harry Potter and the Philosopher\'s Stone" & "Harry Potter and the Chamber of Secrets" in cart. Total cost of my cart is 15.2 EUR', function(){
-        bookshop = new BookShop();
         bookshop.put("Harry Potter and the Philosopher's Stone");
         bookshop.put("Harry Potter and the Chamber of Secrets");
 
@@ -35,18 +38,6 @@ suite('buy Harry Potter books', function () {
     });
 
     test('I put "Harry Potter and the Philosopher\'s Stone" & "Harry Potter and the Chamber of Secrets" & "Harry Potter and the Prisoner of Azkaban" in cart. Total cost of my cart is 21.6 EUR', function(){
-        bookshop = new BookShop();
-        bookshop.put("Harry Potter and the Philosopher's Stone");
-        bookshop.put("Harry Potter and the Chamber of Secrets");
-        bookshop.put("Harry Potter and the Prisoner of Azkaban");
-
-        res = bookshop.totalCost();
-
-        assert.equal(res, 24 - (24 / 100.0 * 10))
-    });
-
-    test('I put "Harry Potter and the Philosopher\'s Stone" & "Harry Potter and the Chamber of Secrets" & "Harry Potter and the Prisoner of Azkaban" in cart. Total cost of my cart is 21.6 EUR', function(){
-        bookshop = new BookShop();
         bookshop.put("Harry Potter and the Philosopher's Stone");
         bookshop.put("Harry Potter and the Chamber of Secrets");
         bookshop.put("Harry Potter and the Prisoner of Azkaban");
@@ -57,7 +48,6 @@ suite('buy Harry Potter books', function () {
     });
 
     test('I put "Harry Potter and the Philosopher\'s Stone" & "Harry Potter and the Chamber of Secrets" & "Harry Potter and the Prisoner of Azkaban" & "Harry Potter and the Goblet of Fire" in cart. Total cost of my cart is 25.6 EUR', function(){
-        bookshop = new BookShop();
         bookshop.put("Harry Potter and the Philosopher's Stone");
         bookshop.put("Harry Potter and the Chamber of Secrets");
         bookshop.put("Harry Potter and the Prisoner of Azkaban");
@@ -68,5 +58,7 @@ suite('buy Harry Potter books', function () {
         var cost = (4 * 8);
         assert.equal(res, cost - (cost / 100.0 * 20))
     });
+
+
 
 });
